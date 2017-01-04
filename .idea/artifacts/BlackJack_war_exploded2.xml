@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="BlackJack:war exploded2">
+    <output-path>/usr/local/apache-tomcat-8.5.6/webapps/BlackJack</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="BlackJack" />
+        </element>
+        <element id="directory" name="lib" />
+      </element>
+      <element id="javaee-facet-resources" facet="BlackJack/web/Web" />
+    </root>
+  </artifact>
+</component>
