@@ -34,12 +34,15 @@ Note: the easiest way to access the command line for a Mac is to `⌘-space`, ty
   2. Choose 8.5.9 > Binary Distributions > Core > tar.gz
   3. Open Finder, in downloads, click on apache-tomcat-8.5.9.tar.gz to extract the contents
   4. In Macintosh HD (if this does not show up, go to Finder/preferences/Devices/click "MacBook HD")
-  5. In your user `/Library/` make a new directory called "tomcat"
+  5. In your user `/Library/` make a new directory called "Tomcat"
      1. `cd ~/Library` - move into, i.e. change to, your Library directory
-     2. `mkdir tomcat` - make a new directory in your current directory named "tomcat"
-  6. Move the **_contents_** of `apache-tomcat-8.5.9` into the `/library/tomcat` folder   
+     2. `mkdir Tomcat` - make a new directory in your current directory named "Tomcat"
+  6. Move the **_contents_** of `apache-tomcat-8.5.9` into the `/library/Tomcat` folder   
      NOTE: do not copy the apache-tomcat-8.5.9 parent folder, just the contents.  
   7. Start the server and verify the install (see [Tomcat Commands](https://github.com/kelliet/BlackJack#tomcat-commands) above)
+  8. Change ownership of the /Library/Tomcat folder hierarchy: sudo chown -R <your_username> /Library/Tomcat
+  9. Make all scripts executable: sudo chmod +x /Library/Tomcat/bin/*.sh
+  
    
 ## Getting the BlackJack project started
  1. create a GitHub account: www.github.com
