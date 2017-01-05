@@ -39,9 +39,9 @@ Note: the easiest way to access the command line for a Mac is to `⌘-space`, ty
      2. `mkdir Tomcat` - make a new directory in your current directory named "Tomcat"
   6. Move the **_contents_** of `apache-tomcat-8.5.9` into the `/library/Tomcat` folder   
      NOTE: do not copy the apache-tomcat-8.5.9 parent folder, just the contents.  
-  7. Start the server and verify the install (see [Tomcat Commands](https://github.com/kelliet/BlackJack#tomcat-commands) above)
-  8. Change ownership of the /Library/Tomcat folder hierarchy: sudo chown -R <your_username> /Library/Tomcat
-  9. Make all scripts executable: sudo chmod +x /Library/Tomcat/bin/*.sh
+  7. Change ownership of the /Library/Tomcat folder hierarchy: sudo chown -R <your_username> /Library/Tomcat
+  8. Make all scripts executable: sudo chmod +x /Library/Tomcat/bin/*.sh
+  9. Start the server and verify the install (see [Tomcat Commands](https://github.com/kelliet/BlackJack#tomcat-commands) above)
   
    
 ## Getting the BlackJack project started
