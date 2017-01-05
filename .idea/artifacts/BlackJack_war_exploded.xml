@@ -6,10 +6,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="BlackJack" />
         </element>
-        <element id="directory" name="lib">
-          <element id="library" level="project" name="javax:javaee-api:6.0" />
-        </element>
+        <element id="directory" name="lib" />
       </element>
+      <element id="javaee-facet-resources" facet="BlackJack/web/Web" />
     </root>
   </artifact>
 </component>

@@ -12,8 +12,7 @@
 
   <form method="post" action="blackjack">
 
-    <input type="SUBMIT" name="action" value="hit">
-    <input type="SUBMIT" name="action" value="stand">
+  <input type="SUBMIT" name="action" value="Play">
 
     <br>
     <table>

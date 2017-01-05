@@ -179,13 +179,13 @@ public class Main {
         } else {
             for (Card card : hand) {
                 System.out.printf("[%s%s]", card.getSuitStringShort(), card.getRankStringShort());
-                str.append(card.getSuitStringShort() + card.getRankStringShort());
+                str.append(card.getSuitStringShort() + " " +card.getRankStringShort());
             }
             int total = getHandTotal(hand, true);
             if (total > 21) {
                 total = getHandTotal(hand, false);
             }
-            System.out.println(" " + total);
+            System.out.println("dealer total: " + total);
             str.append(" " + total);
             str.append("\n");
         }

@@ -38,7 +38,7 @@ public class MainController extends HttpServlet{
         dealer.add(deck.remove(0));
         player.add(deck.remove(0));
         //Display hands
-        Main.printDealerHand(dealer, true, output);
+        //Main.printDealerHand(dealer, true, output);
         //Ask what player wants to do
         System.out.println("action: " + action);
                 player.add(deck.remove(0));
@@ -53,12 +53,12 @@ public class MainController extends HttpServlet{
                     output.append("Player Busted, Dealer Wins <br>");
                     System.out.println("Player Busted, Dealer Wins");
                 } else {
-                    System.out.println("Press H to hit, S to stand");
                     if (getHandTotal(player, false) > 21) {
                         System.out.println();
 
                         Main.printDealerHand(dealer, false, output);
                         Main.printPlayerHand(player, output);
+                        output.append("Player Busted, Dealer Wins <br>");
                         System.out.println("Player Busted, Dealer Wins");
                     } else {
                         Main.printDealerHand(dealer, false, output);
@@ -72,12 +72,14 @@ public class MainController extends HttpServlet{
 
                         //Determine Dealer Actions
                         if (dealerTotal > 16) { //Dealer stands
+                            output.append("Dealer Stands <br>");
                             System.out.println("Dealer Stands");
                             Main.printResults(dealerTotal, playerTotal, output);
                         } else { //Dealer hits
                             boolean stand = false;
                             boolean bust = false;
                             while (!stand && !bust) {
+                                output.append("Dealer Hits <br>");
                                 System.out.println("Dealer Hits");
                                 dealer.add(deck.remove(0));
 
@@ -99,6 +101,7 @@ public class MainController extends HttpServlet{
                                         }
                                     }
                                     if (bust) {
+                                        output.append("Dealer Busted, Player Wins <br>");
                                         System.out.println("Dealer Busted, Player Wins");
                                     } else if (stand) {
                                         dealerTotal = getHandTotal(dealer, true);
@@ -109,11 +112,65 @@ public class MainController extends HttpServlet{
                                         if (playerTotal > 21) {
                                             playerTotal = getHandTotal(player, false);
                                         }
+                                        output.append("Dealer Stands <br>");
                                         System.out.println("Dealer Stands");
                                         Main.printResults(dealerTotal, playerTotal, output);
                                     }
 
                                 }
+                            }
+                            //Determine Dealer Actions
+                            if (dealerTotal <= 21) { //Dealer stands
+                                //Player hits
+                                stand = false;
+                                bust = false;
+                                while (!stand && !bust) {
+                                    output.append("Player Hits <br>");
+                                    System.out.println("Player Hits");
+                                    //player.add(deck.remove(0));
+
+                                    Main.printDealerHand(dealer, false, output);
+                                    Main.printPlayerHand(player, output);
+
+
+
+                                    if (playerTotal > 18 && playerTotal <= 21) { //If valid hand, stand
+                                        stand = true;
+                                        playerTotal = getHandTotal(player, false);
+                                        dealerTotal = getHandTotal(dealer, true);
+                                        Main.printResults(dealerTotal, playerTotal, output);
+                                    } else { //If higher then 21, check with ace low, if still higher then 21, bust, else continue and hit
+                                        if (playerTotal > 21) {
+                                            playerTotal = getHandTotal(player, false);
+
+                                            if (playerTotal > 21) {
+                                                bust = true;
+                                            } else if (playerTotal > 18) {
+                                                stand = true;
+                                            }
+                                        }
+                                        if (bust) {
+                                            output.append("Player Busted, Dealer Wins <br>");
+                                            System.out.println("Player Busted, Dealer Wins");
+                                        } else if (stand) {
+                                            dealerTotal = getHandTotal(dealer, true);
+                                            if (dealerTotal > 21) {
+                                                dealerTotal = getHandTotal(dealer, false);
+                                            }
+                                            playerTotal = getHandTotal(player, true);
+                                            if (playerTotal > 21) {
+                                                playerTotal = getHandTotal(player, false);
+                                            }
+                                            output.append("Dealer Stands <br>");
+                                            System.out.println("Dealer Stands");
+                                            Main.printResults(dealerTotal, playerTotal, output);
+                                        }
+
+                                    }
+                                }
+
+
+
                             }
 
                         }
